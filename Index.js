@@ -53,11 +53,15 @@ const buildEngr = engineer => {
             console.log('Your team is ready!')
         }
     })
-    .then ((engineer)=> {
-        this.employee = new Engineer(name, id, email, github, job)
-        teamArray.push(employee);
-        console.log(teamArray)
-    })
+    // .then ((name, id, email, github, job)=> {
+    //     this.employee = new Engineer(name, id, email, github, job)
+    //     teamArray.push(employee);
+    //     console.log(teamArray)
+    // })
+    // .catch(function (err) {
+    //     console.log("There was an error.");
+    //     console.log(err);
+    // })
 }
 
 const buildIntern = intern => {
@@ -104,11 +108,15 @@ const buildIntern = intern => {
             console.log('Your team is ready!')
         }
     })
-    .then ((intern)=> {
-        this.employee = new Intern(name, id, email, school, job)
-        teamArray.push(employee);
-        console.log(teamArray)
-    })
+    // .then ((name, id, email, school, job)=> {
+    //     this.employee = new Intern(name, id, email, school, job)
+    //     teamArray.push(employee);
+    //     console.log(teamArray)
+    // })
+    // .catch(function (err) {
+    //     console.log("There was an error.");
+    //     console.log(err);
+    // })
 }
 
 const build = team => {
@@ -156,11 +164,15 @@ const build = team => {
             console.log('Your team is ready!')
         }
     })
-    .then ((manager)=> {
-        this.employee = new Manager(name, id, email, number, job)
-        teamArray.push(employee);
-        console.log(teamArray)
-    })
+    // .then ((name, id, email, number, job)=> {
+    //     this.employee = new Manager(name, id, email, number, job)
+    //     teamArray.push(employee);
+    //     console.log(teamArray)
+    // })
+    // .catch(function (err) {
+    //     console.log("There was an error.");
+    //     console.log(err);
+    // })
 }
 
 // const writeHTML = team =>
@@ -170,6 +182,26 @@ const build = team => {
 // })
 
 build()
+    .then ((name, id, email, number, job)=> {
+        if (job === 'Manager') {
+        this.employee = new Manager(name, id, email, number, job)
+        teamArray.push(employee);
+        console.log(teamArray)
+        } else if (job === 'Engineer') {
+            this.employee = new Engineer(name, id, email, github, job)
+            teamArray.push(employee);
+            console.log(teamArray)  
+        } else if (job === 'Intern') {
+            this.employee = new Intern(name, id, email, school, job)
+            teamArray.push(employee);
+            console.log(teamArray)
+
+        }
+    })
+    .catch(function (err) {
+        console.log("There was an error.");
+        console.log(err);
+    })
 
 
     
