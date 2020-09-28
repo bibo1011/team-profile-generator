@@ -4,8 +4,12 @@ const employee = require('../team-profile-generator/lib/Employee.js');
 const manager = require('../team-profile-generator/lib/Manager.js');
 const engineer = require('../team-profile-generator/lib/Engineer.js');
 const intern = require('../team-profile-generator/lib/Intern.js');
+const Engineer = require('../team-profile-generator/lib/Engineer.js');
+const Intern = require('../team-profile-generator/lib/Intern.js');
+const Manager = require('../team-profile-generator/lib/Manager.js');
+const teamArray = []
 
-const buildEngr = team => {
+const buildEngr = engineer => {
     return inquirer.prompt([
         {
             type: 'input',
@@ -49,9 +53,14 @@ const buildEngr = team => {
             console.log('Your team is ready!')
         }
     })
+    .then ((engineer)=> {
+        this.employee = new Engineer(name, id, email, github, job)
+        teamArray.push(employee);
+        console.log(teamArray)
+    })
 }
 
-const buildIntern = team => {
+const buildIntern = intern => {
     return inquirer.prompt([
         {
             type: 'input',
@@ -70,7 +79,7 @@ const buildIntern = team => {
         },
         {
             type: 'input',
-            name: 'github',
+            name: 'school',
             message: 'Enter school name:'
         },
         {
@@ -95,6 +104,11 @@ const buildIntern = team => {
             console.log('Your team is ready!')
         }
     })
+    .then ((intern)=> {
+        this.employee = new Intern(name, id, email, school, job)
+        teamArray.push(employee);
+        console.log(teamArray)
+    })
 }
 
 const build = team => {
@@ -116,7 +130,7 @@ const build = team => {
         },
         {
             type: 'input',
-            name: 'email',
+            name: 'number',
             message: 'Enter office number:'
         },
         {
@@ -142,7 +156,18 @@ const build = team => {
             console.log('Your team is ready!')
         }
     })
+    .then ((manager)=> {
+        this.employee = new Manager(name, id, email, number, job)
+        teamArray.push(employee);
+        console.log(teamArray)
+    })
 }
+
+// const writeHTML = team =>
+// fs.writeFile('../dist/Index.html', team, err => {
+//     if (err) throw err;
+//     console.log('Your team is ready! Check out Index.html in /dist directory to see it!');
+// })
 
 build()
 
