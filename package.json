@@ -21,7 +21,8 @@
   "homepage": "https://github.com/bibo1011/team-profile-generator#readme",
   "dependencies": {
     "fs": "0.0.1-security",
-    "inquirer": "^7.3.3"
+    "inquirer": "^7.3.3",
+    "inquirer-confirm-validated": "^1.0.0"
   },
   "devDependencies": {
     "jest": "^26.4.2"

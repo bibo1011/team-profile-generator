@@ -15,15 +15,51 @@
         body {
             background-color: darkblue;
         }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .card {
+            padding: 15px;
+            border-radius: 6px;
+            background-color: white;
+            color: lightskyblue;
+            margin: 15px;
+        }
+        .text {
+            padding: 15px;
+            border-radius: 6px;
+            background-color: lightskyblue;
+            color: black;
+            margin: 15px;
+        }
+        .col {
+            flex: 1;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <header>
         <H1>My Team</H1>
     </header>
-    <div>
-
+    <div class='row'>
+        <div class="card bg-dark justify-content-center align-items-center" style="width: 18rem;">
+                <div class="col card-header">
+                    <h4>${teamArray.name}</h4>
+                </div>
+                <div class="col card-header">
+                    <h4>${teamArray.title}</h4 >
+                </div >
+                <ul class="list-group list-group-flush text">
+                    <li class="list-group-item">ID: ${teamArray.id}</li>
+                    <li class="list-group-item">Email: ${teamArray.email}</li>
+                    <li class="list-group-item"> ${teamArray.role}</li>
+                </ul>
+        </div > 
     </div>
-    
 </body>
 </html>
