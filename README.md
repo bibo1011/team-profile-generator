@@ -29,6 +29,8 @@
   ## *Usage*
    
   Go to Team Profile Generator on terminal. Run 'node Index.js'. You will be prompt with a series of questions. Answer questions. When finished, you will get notification tha they passes all of them.
+  
+  Walkthrough video: https://drive.google.com/file/d/17QxDLIdKidWM1V09UTIzkoTJ-JQsvPy_/view
 
   ## *Credits*
    
@@ -50,7 +52,7 @@
 
   ## *Test*
    
-  Go to Team Profile Generator on terminal. Run 'npm test'.
+  Go to Team Profile Generator on terminal. Run 'npm test'. 
 
   # Contact Info
 
