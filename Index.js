@@ -67,8 +67,9 @@ const build = team => {
                 }
             ])
             .then ( addAnswer => {
-                const manager = new Manager (answers.name, answers.id, answers.email, answers.role, addAnswer.office);
-                teamArray.push(manager);
+                const employee = new Manager (answers.name, answers.id, answers.email, answers.role, addAnswer.office);
+                teamArray.push(employee);
+                console.log(employee.name);
                 addTeam();
             })
         } else if (answers.role === 'Engineer') {
@@ -80,8 +81,8 @@ const build = team => {
                 }
             ])
             .then ( addAnswer => {
-                const engineer = new Engineer (answers.name, answers.id, answers.email, answers.role, addAnswer.github);
-                teamArray.push(engineer);
+                const employee = new Engineer (answers.name, answers.id, answers.email, answers.role, addAnswer.github);
+                teamArray.push(employee);
                 addTeam();
             })
         } else if (answers.role === 'Intern') {
@@ -93,8 +94,8 @@ const build = team => {
                 }
             ])
             .then ( addAnswer => {
-                const intern = new Intern(answers.name, answers.id, answers.email, answers.role, addAnswer.school);
-                teamArray.push(intern);
+                const employee = new Intern(answers.name, answers.id, answers.email, answers.role, addAnswer.school);
+                teamArray.push(employee);
                 addTeam();
             })
         }
