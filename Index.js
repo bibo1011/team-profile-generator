@@ -19,13 +19,26 @@ const addTeam = team => {
             if (addConfirm.add === true) {
                 return build();
             } else {
-                console.log(teamArray)
-                return generateHTML(team);
+                console.table(teamArray)
+                return generateHTML(teamArray);
+                
             }
+    })
+    .then(teamArray => {
+        const writeHTML = generateHTML(teamArray)
+        fs.writeFile('../team-profile-generator/dist/Index.html', writeHTML, err => {
+            if (err) throw new Error(err);
+            console.log('Your team is ready! Check out Index.html in /dist directory to see it!');
+        })
+        
+    })
+    .catch(function (err) {
+        console.log("There was an error.");
+        console.log(err);
     })
 }
 
-const build = team => {
+const build = () => {
     return inquirer.prompt([
         {
             type: 'input',
@@ -62,26 +75,30 @@ const build = team => {
             inquirer.prompt ([
                 {
                     type: 'input',
-                    name: 'office',
+                    name: 'spec',
                     message: 'Enter office number:' 
                 }
             ])
             .then ( addAnswer => {
-                const employee = new Manager (answers.name, answers.id, answers.email, answers.role, addAnswer.office);
+                const employee = new Manager (answers.name, answers.id, answers.email, answers.role, addAnswer.spec);
                 teamArray.push(employee);
-                console.log(employee.name);
+                // console.log(teamArray[i].name);
                 addTeam();
+            })
+            .catch(function (err) {
+                console.log("There was an error.");
+                console.log(err);
             })
         } else if (answers.role === 'Engineer') {
             inquirer.prompt ([
                 {
                     type: 'input',
-                    name: 'github',
+                    name: 'spec',
                     message: 'Enter github username:' 
                 }
             ])
             .then ( addAnswer => {
-                const employee = new Engineer (answers.name, answers.id, answers.email, answers.role, addAnswer.github);
+                const employee = new Engineer (answers.name, answers.id, answers.email, answers.role, addAnswer.spec);
                 teamArray.push(employee);
                 addTeam();
             })
@@ -89,12 +106,12 @@ const build = team => {
             inquirer.prompt ([
                 {
                     type: 'input',
-                    name: 'school',
+                    name: 'spec',
                     message: 'Enter school attended:' 
                 }
             ])
             .then ( addAnswer => {
-                const employee = new Intern(answers.name, answers.id, answers.email, answers.role, addAnswer.school);
+                const employee = new Intern(answers.name, answers.id, answers.email, answers.role, addAnswer.spec);
                 teamArray.push(employee);
                 addTeam();
             })
@@ -104,19 +121,19 @@ const build = team => {
         console.log("There was an error.");
         console.log(err);
     })
+
 }
 
 
-const writeHTML = team =>
-fs.writeFile('../team-profile-generator/dist/Index.html', team, err => {
-    if (err) throw err;
-    // console.log('Your team is ready! Check out Index.html in /dist directory to see it!');
-})
+// const writeHTML = team => {
+//     fs.writeFile('../team-profile-generator/dist/Index.html', team, err => {
+//         if (err) throw new Error(err);
+//         console.log('Your team is ready! Check out Index.html in /dist directory to see it!');
+//     })
+// }
 
 build()
-    .then(team => {
-        return writeHTML(team);
-    })
+
     
 
 

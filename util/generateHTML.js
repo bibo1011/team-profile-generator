@@ -1,4 +1,6 @@
-const generateHTML = teamArray => {
+const generateHTML = teamArr => {
+    for (i = 0; i > teamArr.length; i++);
+    console.log(teamArr[i].role)
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -51,15 +53,15 @@ const generateHTML = teamArray => {
         <div class='row'>
             <div class="card bg-dark justify-content-center align-items-center" style="width: 18rem;">
                     <div class="col card-header">
-                        <h4>${employee.name}</h4>
+                        <h4>${teamArr.name}</h4>
                     </div>
                     <div class="col card-header">
-                        <h4>${employee.role}</h4 >
+                        <h4>${teamArr.role}</h4 >
                     </div >
                     <ul class="list-group list-group-flush text">
-                        <li class="list-group-item">ID: ${employee.id}</li>
-                        <li class="list-group-item">Email: <a href=mailto: ${employee.email}</a></li>
-                        <li class="list-group-item"> ${employee.name}</li>
+                        <li class="list-group-item">ID: ${teamArr.id}</li>
+                        <li class="list-group-item">Email: <a href=mailto: ${teamArr.email}</a></li>
+                        <li class="list-group-item"> {teamArr.spec}</li>
                     </ul>
             </div > 
         </div>
